@@ -1,1 +1,1 @@
-Git repo for WDV321 at Dmacc.
+Git repo for WDV321 at Dmac.

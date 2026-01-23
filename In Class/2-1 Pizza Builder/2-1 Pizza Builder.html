@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Builder Demo</title>
+    <!-- <script src="script2-1.js"></script> -->
+    <script>
+      let crustTypes = ["Thin Crust", "Thick Crust", "Stuffed Crust", "Gluten Free"];
+      let meatToppings = ["Pepperoni", "Sausage"];
+      let veggieToppings = ["Mushrooms", "Onions"];
+      let toppings = meatToppings.concat(veggieToppings);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const toppingSelect = document.getElementById('toppingSelect');
+        toppings.forEach((topping) => {
+          const option = document.createElement("option");
+          option.value = topping;
+          option.textContent = topping;
+          toppingSelect.appendChild(option);
+        });
+      });
+
+      function addTopping() {
+        //gets value
+        const newTopping = document.getElementById('newTopping');
+        let topping = newTopping.value.trim();
+
+        if (topping == "" || toppings.includes(topping)) {
+          newTopping.value = "";
+          return;
+        }
+
+        //adds value to array
+        toppings.push(topping);
+
+        //creates option element with the value
+        const option = document.createElement("option");
+        option.value = topping;
+        option.textContent = topping;
+
+        //adds option to the select element
+        const toppingSelect = document.getElementById('toppingSelect');
+        toppingSelect.appendChild(option);
+
+        //clears the input box
+        newTopping.value = "";
+      }
+
+      function setToppings(toppings) {
+        const toppingSelect = document.getElementById('toppingSelect');
+        toppingSelect.innerHTML = "";
+        toppings.forEach((topping) => {
+          const option = document.createElement("option");
+          option.value = topping;
+          option.textContent = topping;
+          toppingSelect.appendChild(option);
+        });
+      }
+    </script>
+</head>
+<body>
+    <h1>Pizza Builder Demo</h1>
+
+    <h2>Step 1: Dropdown Created with document.write()</h2>
+    <select id="crustSelect">
+      <!-- populate using document.write() -->
+      <script>
+        for (let i = 0; i < crustTypes.length; i++) {
+          document.write("<option value='" + crustTypes[i] + "'>" + crustTypes[i] + "</option>");
+        }
+      </script>
+    </select>
+
+    <h2>Step 2: Dropdown Created with createElement() and appendChild()</h2>
+    <select id="toppingSelect">
+      <!-- populate using createElement and appendChild - can also us .add() since that works well for SELECT elements -->
+    </select>
+
+    <h2>Step 3: Add a New Topping</h2>
+    <!-- Add event listener on button to dynamically add an option to the pizza topping dropdown -->
+    <input type="text" id="newTopping" placeholder="Enter new topping">
+    <button id="addToppingBtn" onclick="addTopping()">Add Topping</button>
+
+    <h2>Step 4: Switch Between Pizza Styles</h2>
+    <!--
+        Add event listener on the 'loadVeggieBtn' button to reload the veggies toppings
+        Add event listener on the 'loadMeatBtn' button to reload the meat toppings
+    -->
+    <button id="loadVeggieBtn" onclick='setToppings(veggieToppings);'>Load Veggie Toppings</button>
+    <button id="loadMeatBtn" onclick='setToppings(meatToppings);'>Load Meat Toppings</button>
+    <button id="loadAllBtn" onclick='setToppings(toppings);'>Load All Toppings</button>
+</body>
+</html>
