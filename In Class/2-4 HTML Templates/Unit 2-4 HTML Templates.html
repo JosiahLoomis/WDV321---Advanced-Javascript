@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Templates</title>
+    <script src="2-4 Script.js" defer></script>
+</head>
+<body>
+  <template id="profileTemplate">
+    <div class="card">
+      <h2 class="name"></h2>
+      <p class="title"></p>
+    </div>
+  </template>
+<div id="profiles"></div>
+
+<form id="personForm">
+  <input type="text" id="nameInput" placeholder="Name" required>
+  <input type="text" id="titleInput" placeholder="Job Title" required>
+  <button type="submit">Add Person</button>
+</form>
+</body>
+</html>
