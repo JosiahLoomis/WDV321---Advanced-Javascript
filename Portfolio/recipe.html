@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        
+        .recipe-header {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .recipe-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .info-badge {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: #e7f1ff;
+            color: #0d6efd;
+        }
+    </style>
+    <title>Recipe</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Recipes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">Add Recipe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Recipe Header Section -->
+        <div class="recipe-header">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://pub-aaa82e9851064d22b954c3ebbafc9ae6.r2.dev/legacy/webp/burger-with-melted-cheese-m-Y1i3jpYYJZYfOEfX5dX.webp" 
+                         alt="Recipe" 
+                         class="recipe-image">
+                </div>
+                <div class="col-md-8">
+                    <h1 id="recipe-name">Classic Burger</h1>
+                    <p id="recipe-description" class="lead">
+                        A delicious homemade burger with melted cheese, fresh vegetables, and special sauce. Perfect for family gatherings or weekend cookouts.
+                    </p>
+                    
+                    <div class="mt-3">
+                        <span class="badge bg-primary info-badge">
+                            <i class="bi bi-people"></i> Serves: <span id="servings">5</span>
+                        </span>
+                        <span class="badge bg-success info-badge">
+                            <i class="bi bi-clock"></i> Cook Time: <span id="cook-time">30min</span>
+                        </span>
+                        <span class="badge bg-warning text-dark info-badge">
+                            <i class="bi bi-speedometer2"></i> Difficulty: <span id="difficulty">Normal</span>
+                        </span>
+                    </div>
+                    
+                    <!-- Servings Adjuster -->
+                    <div class="mt-4">
+                        <label for="servings-selector" class="form-label"><strong>Adjust Servings:</strong></label>
+                        <input type="number" 
+                               id="servings-input" 
+                               class="form-control" 
+                               style="max-width: 150px;" 
+                               value="5" 
+                               min="1" 
+                               max="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion for Ingredients and Instructions -->
+        <div class="accordion" id="recipeAccordion">
+            
+            <!-- Ingredients Section (Open by Default) -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingIngredients">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIngredients" aria-expanded="true" aria-controls="collapseIngredients">
+                        <strong>Ingredients</strong>
+                    </button>
+                </h2>
+                <div id="collapseIngredients" class="accordion-collapse collapse show" aria-labelledby="headingIngredients" data-bs-parent="#recipeAccordion">
+                    <div class="accordion-body">
+                        <ul id="ingredients-list" class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="qty" data-original="1">1</span> lb ground beef
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="4">4</span> burger buns
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="4">4</span> slices cheddar cheese
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="2">2</span> tomatoes, sliced
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="1">1</span> onion, sliced
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="4">4</span> lettuce leaves
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="0.25">1/4</span> cup mayonnaise
+                            </li>
+                            <li class="list-group-item">
+                                <span class="qty" data-original="0.25">1/4</span> cup ketchup
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions Section (Open by Default) -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingInstructions">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructions" aria-expanded="true" aria-controls="collapseInstructions">
+                        <strong>Instructions</strong>
+                    </button>
+                </h2>
+                <div id="collapseInstructions" class="accordion-collapse collapse show" aria-labelledby="headingInstructions" data-bs-parent="#recipeAccordion">
+                    <div class="accordion-body">
+                        <ol id="instructions-list" class="list-group list-group-numbered">
+                            <li class="list-group-item">
+                                Divide the ground beef into <span class="qty" data-original="4">4</span> equal portions and shape into patties.
+                            </li>
+                            <li class="list-group-item">
+                                Season both sides of each patty with salt and pepper to taste.
+                            </li>
+                            <li class="list-group-item">
+                                Heat a grill or skillet over medium-high heat.
+                            </li>
+                            <li class="list-group-item">
+                                Cook the patties for 4-5 minutes per side, or until they reach your desired doneness.
+                            </li>
+                            <li class="list-group-item">
+                                During the last minute of cooking, place a slice of cheese on each patty and allow it to melt.
+                            </li>
+                            <li class="list-group-item">
+                                Toast the burger buns lightly on the grill or in a toaster.
+                            </li>
+                            <li class="list-group-item">
+                                Mix mayonnaise and ketchup together to create the sauce.
+                            </li>
+                            <li class="list-group-item">
+                                Assemble burgers: spread sauce on both halves of the bun, add lettuce, tomato, the cooked patty with cheese, and onion slices.
+                            </li>
+                            <li class="list-group-item">
+                                Serve immediately and enjoy!
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

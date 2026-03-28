@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .ingredient-row, .instruction-row {
+            margin-bottom: 1rem;
+        }
+        
+        .remove-btn {
+            min-width: 80px;
+        }
+    </style>
+    <title>Add Recipe</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Recipes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">Add Recipe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Add New Recipe</h1>
+        
+        <form id="recipe-form">
+            <!-- Basic Information Section -->
+            <div class="form-section">
+                <h3 class="mb-3">Basic Information</h3>
+                
+                <div class="mb-3">
+                    <label for="recipe-name" class="form-label">Recipe Name *</label>
+                    <input type="text" class="form-control" id="recipe-name" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="recipe-description" class="form-label">Description *</label>
+                    <textarea class="form-control" id="recipe-description" rows="3" required></textarea>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="recipe-servings" class="form-label">Servings *</label>
+                        <input type="number" class="form-control" id="recipe-servings" min="1" required>
+                    </div>
+                    
+                    <div class="col-md-4 mb-3">
+                        <label for="recipe-cooktime" class="form-label">Cook Time *</label>
+                        <input type="text" class="form-control" id="recipe-cooktime" placeholder="e.g., 30min" required>
+                    </div>
+                    
+                    <div class="col-md-4 mb-3">
+                        <label for="recipe-difficulty" class="form-label">Difficulty *</label>
+                        <select class="form-select" id="recipe-difficulty" required>
+                            <option value="">Choose...</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="recipe-image" class="form-label">Image URL *</label>
+                    <input type="url" class="form-control" id="recipe-image" placeholder="https://example.com/image.jpg" required>
+                </div>
+            </div>
+
+            <!-- Ingredients Section -->
+            <div class="form-section">
+                <h3 class="mb-3">Ingredients</h3>
+                
+                <div id="ingredients-container">
+                    <!-- Initial ingredient row -->
+                    <div class="ingredient-row row">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Amount (e.g., 2)" required>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="Ingredient (e.g., cups flour)" required>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-danger remove-btn w-100">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary mt-3">
+                    + Add Ingredient
+                </button>
+            </div>
+
+            <!-- Instructions Section -->
+            <div class="form-section">
+                <h3 class="mb-3">Instructions</h3>
+                
+                <div id="instructions-container">
+                    <!-- Initial instruction row -->
+                    <div class="instruction-row row">
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="2" placeholder="Step 1: Enter instruction here..." required></textarea>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-danger remove-btn w-100">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary mt-3">
+                    + Add Instruction
+                </button>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mb-5">
+                <button type="submit" class="btn btn-success btn-lg px-5">Save Recipe</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
