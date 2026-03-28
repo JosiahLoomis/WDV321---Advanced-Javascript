@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Asynchronous JS</title>
+</head>
+<body>
+  <form id="contactForm">
+    Name: <input type="text" name="name" id="name"><br>
+    Email: <input type="text" name="email" id="email"><br>
+    <button type="submit" id="btnSubmit">Submit</button>
+  </form>
+  <script>
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData();
+      fetch("saveContact.php", { 
+        method: 'POST', 
+        body: formData 
+      })
+      .then(response => response.json())
+      .then(data => console.log(data));
+    });
+  </script>
+</body>
+</html>

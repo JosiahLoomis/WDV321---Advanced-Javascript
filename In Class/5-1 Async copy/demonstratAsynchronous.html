@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Asynchronous JS</title>
+</head>
+<body>
+  <form id="countriesForm">
+    Name: <input type="text" name="name" id="name"><br>
+    <button type="submit" id="btnSubmit">Submit</button>
+  </form>
+
+  <div id="output"></div>
+  <script>
+    const form = document.getElementById("countriesForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData();
+      fetch("https://restcountries.com/v3.1/all?fields=name,capital,currencies")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+    });
+  </script>
+</body>
+</html>
