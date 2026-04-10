@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV321 Advanced Javascript - JSON</title>
+<!--
+    Instructions:
+    	1. Incorporate the script.js file into this page as an external javascript file.
+
+      -- for the instructions below, the javascript should be added to the external script.js file --
+      2. Access the JSON data in local storage and convert it into a javascript array of objects.
+      3. Use the information in the array to complete a student card for EACH student object.
+      4. Account for the fact that there could be a random number of student objects in the array.
+      5. Add a form to allow adding a new student object to the array
+        a. Adding a new student will update local storage
+        b. Make sure the newly added student is displayed on the page.
+      6. Do not use jQuery, use plain Javascript
+-->
+  <script src="script.js" defer></script>
+  <style>
+    .studentCard	{
+      width:200px;
+      box-sizing:border-box;
+      background-color:lightblue;
+      padding-left:5px;
+      padding-top:3px;
+      border:thin solid blue;
+      box-shadow: 2px 2px 2px grey;
+    }
+
+    .studentCard h3	{
+      margin:0px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>WDV321 Advanced Javascript</h1>
+  <h2>Unit-8 JSON Objects</h2>
+  <h3>Creating and consuming a JSON object</h3>
+
+  <template id="studentTemplate">
+    <div class="studentCard">
+      <h3>Student ID: <span id="studentId"></span></h3>
+      <p>Student GPA: <span id="studentGpa"></span></p>
+      Student Courses:
+      <ul id="coursesList">
+        <!-- display the courses as list items -->
+      </ul>
+    </div>
+  </template>
+
+  <div id="studentDisplay">
+  </div>
+
+  <form id="studentForm">
+  <h3>Add New Student</h3>
+  
+  <label for="newStudentId">Student ID:</label>
+  <input type="number" id="newStudentId" required><br><br>
+  
+  <label for="newStudentGpa">Student GPA:</label>
+  <input type="number" id="newStudentGpa" step="0.01" min="0" max="4" required><br><br>
+  
+  <label for="newStudentCourses">Courses (comma-separated):</label>
+  <input type="text" id="newStudentCourses" placeholder="WDV101,WDV131,WDV105" required><br><br>
+  
+  <button type="submit">Add Student</button>
+</form>
+</body>
+</html>
