@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5"
+  },
+  "name": "6-1-test-validation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
