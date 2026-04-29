@@ -24,6 +24,11 @@ function App() {
   const[newMovie, setNewMovie] = useState("");  
 
   const addMovie = () => {
+    if (newMovie == "") {
+      window.alert("New movie can't be blank.");
+      return;
+    }
+
     setMovies([...movies, {id: randomNumber(), name: newMovie}])
     setNewMovie("");
   }
