@@ -21,6 +21,7 @@
             min-width: 80px;
         }
     </style>
+    <script type="module" src="scripts/add.js"></script>
     <title>Add Recipe</title>
 </head>
 <body>
@@ -94,22 +95,24 @@
             <div class="form-section">
                 <h3 class="mb-3">Ingredients</h3>
                 
-                <div id="ingredients-container">
-                    <!-- Initial ingredient row -->
+                <template id="ingredientsTemplate">
                     <div class="ingredient-row row">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" placeholder="Amount (e.g., 2)" required>
+                            <input type="number" class="form-control ingredient-amount" placeholder="Amount (e.g., 2)" min="0" step="0.01" required>
                         </div>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Ingredient (e.g., cups flour)" required>
+                            <input type="text" class="form-control ingredient-name" placeholder="Ingredient (e.g., cups flour)" required>
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-danger remove-btn w-100">Remove</button>
                         </div>
                     </div>
-                </div>
-                
-                <button type="button" class="btn btn-primary mt-3">
+                </template>
+
+                <!-- where rows go -->
+                <div id="ingredients"></div>
+
+                <button id="addIngredient" type="button" class="btn btn-primary mt-3">
                     + Add Ingredient
                 </button>
             </div>
@@ -118,19 +121,22 @@
             <div class="form-section">
                 <h3 class="mb-3">Instructions</h3>
                 
-                <div id="instructions-container">
-                    <!-- Initial instruction row -->
+                <template id="instructionsTemplate">
                     <div class="instruction-row row">
                         <div class="col-md-10">
-                            <textarea class="form-control" rows="2" placeholder="Step 1: Enter instruction here..." required></textarea>
+                            <textarea class="form-control instruction-text" rows="2" placeholder="Enter instruction..." required></textarea>
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-danger remove-btn w-100">Remove</button>
                         </div>
                     </div>
-                </div>
-                
-                <button type="button" class="btn btn-primary mt-3">
+                </template>
+
+                <!-- container -->
+                <div id="instructions"></div>
+
+                <!-- button -->
+                <button id="addInstruction" type="button" class="btn btn-primary mt-3">
                     + Add Instruction
                 </button>
             </div>
